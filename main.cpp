@@ -48,5 +48,9 @@ int main()
     cout << "Imposto sobre servicos: " << impservicos << endl;
     cout << "Imposto sobre ganho de capital: " << impcapital << endl;
 
+    cout << endl << "DEDUCOES:" << endl;
+    cout << "Maximo dedutivel: " << (impsalario + impservicos + impcapital) * 0.3  << endl;
+    cout << "Gastos dedutiveis: " << gmedicos + geducacionais << endl;
+
     return 0;
 }
