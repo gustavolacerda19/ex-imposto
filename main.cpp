@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    double rsalario, rservicos, rcapital, gmedicos, geducacionais, impsalario, impservicos, impcapital;
+    double rsalario, rservicos, rcapital, gmedicos, geducacionais, impsalario, impservicos, impcapital, maxdedutivel, abatimento;
     cout << fixed << setprecision(2);
 
     cout << "Renda anual com salario: ";
@@ -42,6 +42,15 @@ int main()
         impcapital = 0.0;
     }
 
+    maxdedutivel = (impsalario + impservicos + impcapital) * 0.3;
+    if (gmedicos + geducacionais > maxdedutivel) {
+        abatimento = maxdedutivel;
+    }
+
+    else {
+        abatimento = gmedicos + geducacionais;
+    }
+
     cout << endl << "RELATORIO DE IMPOSTO DE RENDA" << endl << endl;
     cout << "CONSOLIDADO DE RENDA:" << endl;
     cout << "Imposto sobre salario: " << impsalario << endl;
@@ -49,8 +58,13 @@ int main()
     cout << "Imposto sobre ganho de capital: " << impcapital << endl;
 
     cout << endl << "DEDUCOES:" << endl;
-    cout << "Maximo dedutivel: " << (impsalario + impservicos + impcapital) * 0.3  << endl;
+    cout << "Maximo dedutivel: " << maxdedutivel  << endl;
     cout << "Gastos dedutiveis: " << gmedicos + geducacionais << endl;
+
+    cout << endl << "RESUMO:" << endl;
+    cout << "Imposto bruto total: " << impsalario + impservicos + impcapital << endl;
+    cout << "Abatimento: " << abatimento << endl;
+    cout << "Imposto devido: " << (impsalario + impservicos + impcapital) - abatimento << endl;
 
     return 0;
 }
